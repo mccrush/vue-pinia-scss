@@ -16,7 +16,7 @@ if (!app) {
   app = createApp(App).use(pinia).use(router).mount('#app')
 }
 
-console.log('main.js : App is run')
+console.log('main.js: App is run')
 
 const countries = useCountriesStore()
 countries.getCountries({ type: 'countries' })
