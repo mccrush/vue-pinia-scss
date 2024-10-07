@@ -1,8 +1,23 @@
 <template>
   <nav class="nav flex-column border-end vh-100">
-    <RouterLink to="/" class="nav-link">List of Countries</RouterLink>
-    <RouterLink to="/item/123" class="nav-link">Countrie</RouterLink>
-    <RouterLink to="/edit/123" class="nav-link">Edit</RouterLink>
-    <RouterLink to="/login" class="nav-link">Login</RouterLink>
+    <RouterLink
+      v-for="page in showDataPages"
+      :key="page.name"
+      :to="page.path"
+      class="nav-link"
+      >{{ page.title }}
+    </RouterLink>
   </nav>
 </template>
+
+<script>
+import { dataPages } from './../../data/dataPages'
+
+export default {
+  computed: {
+    showDataPages() {
+      return dataPages.filter(item => item.showMenu)
+    }
+  }
+}
+</script>

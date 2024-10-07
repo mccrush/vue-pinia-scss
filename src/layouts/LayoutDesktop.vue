@@ -6,9 +6,7 @@
         <TheHeader>
           <template> </template>
         </TheHeader>
-        <main class="border p-2">
-          <RouterView />
-        </main>
+        <main class="border p-2">Content of Page (module)</main>
       </div>
     </div>
   </div>

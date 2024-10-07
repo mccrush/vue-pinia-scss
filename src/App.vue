@@ -2,26 +2,15 @@
   <div>
     <!-- <SupaBase />
     <PiniaStore /> -->
-    <LayoutDesktop />
+
     <!-- <router-view v-slot="{ Component }">
       <transition name="fade">
         <component :is="Component" />
       </transition>
     </router-view> -->
+    <RouterView />
   </div>
 </template>
-
-<script>
-import LayoutDesktop from './layouts/LayoutDesktop.vue'
-//import SupaBase from './components/SupaBase.vue'
-//import PiniaStore from './components/PiniaStore.vue'
-
-export default {
-  components: {
-    LayoutDesktop
-  }
-}
-</script>
 
 <style>
 /* .fade-enter-active,

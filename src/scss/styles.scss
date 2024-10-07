@@ -1,6 +1,8 @@
 //@import 'bootstrap/scss/bootstrap';
+// 1. Сначала включите функции (чтобы Вы могли управлять цветами, SVG, вычислением и т.д.)
 @import "bootstrap/scss/functions";
 
+// 2. Включите сюда любые переопределения переменных по умолчанию
 // Toggle global options
 //$enable-gradients: true;
 $enable-shadows: true;
@@ -21,22 +23,24 @@ $enable-shadows: true;
 // $btn-dark-active-color: #f8f9fa;
 
 
-// Базовые, их подключаем всегда
+// 3. Включите остальные требуемые таблицы стилей Bootstrap (включая любые отдельные таблицы стилей цветового режима)
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/variables-dark";
 
+// 5. Include remainder of required parts
 @import "bootstrap/scss/maps";
 @import "bootstrap/scss/mixins";
-@import "bootstrap/scss/utilities";
-
-// По необходимости
 @import "bootstrap/scss/root";
+
+
+// 6. При необходимости включите любые другие части
+@import "bootstrap/scss/utilities";
 @import "bootstrap/scss/reboot";
 @import "bootstrap/scss/type";
 //@import "bootstrap/scss/images";
 @import "bootstrap/scss/containers";
 @import "bootstrap/scss/grid";
-
+@import "bootstrap/scss/helpers";
 
 //@import "bootstrap/scss/tables";
 @import "bootstrap/scss/forms";
@@ -57,6 +61,6 @@ $enable-shadows: true;
 //@import "bootstrap/scss/spinners";
 //@import "bootstrap/scss/offcanvas";
 
-@import "bootstrap/scss/helpers";
 
+// 7. При желании добавьте API утилит в последнюю очередь, чтобы генерировать классы на основе карты Sass
 @import "bootstrap/scss/utilities/api";
