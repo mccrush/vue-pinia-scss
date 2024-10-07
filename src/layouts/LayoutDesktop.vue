@@ -6,7 +6,7 @@
         <TheHeader>
           <template> </template>
         </TheHeader>
-        <main class="border p-2">Content of Page (module)</main>
+        <main class="border-red p-2">Content of Page (module)</main>
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
   <template>
-  <div>
+  <div class="border-red">
     <!-- <SupaBase />
     <PiniaStore /> -->
 
@@ -12,14 +12,17 @@
   </div>
 </template>
 
-<style>
-/* .fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
-}
+<style lang="sass">
+@import './scss/variables'
+
+.border-red
+  border: 2px solid $my-red
+
+.fade-enter-active,
+.fade-leave-active
+  transition: opacity 0.3s ease
 
 .fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-} */
+.fade-leave-to
+  opacity: 0
 </style>
