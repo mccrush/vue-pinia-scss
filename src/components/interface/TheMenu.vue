@@ -14,7 +14,11 @@
       <button class="btn btn-light w-100" @click="logOut">Выйти</button>
     </div>
     <div v-else>
-      <button class="btn btn-light w-100" @click="$router.push('/login')">
+      <button
+        v-if="$route.name !== 'login'"
+        class="btn btn-light w-100"
+        @click="$router.push('/login')"
+      >
         Войти
       </button>
     </div>
