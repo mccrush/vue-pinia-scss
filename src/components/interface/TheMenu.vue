@@ -9,17 +9,40 @@
       >{{ page.title }}
     </RouterLink>
     <hr />
-    <div>User name</div>
+    <div v-if="isLoggedIn">
+      {{ userEmail }}<br />
+      <button class="btn btn-light w-100" @click="logOut">Выйти</button>
+    </div>
+    <div v-else>
+      <button class="btn btn-light w-100" @click="$router.push('/login')">
+        Войти
+      </button>
+    </div>
   </nav>
 </template>
 
 <script>
 import { dataPages } from './../../data/dataPages'
+import { mapStores } from 'pinia'
+import { useAuthStore } from './../../stores/auth'
 
 export default {
   computed: {
+    ...mapStores(useAuthStore),
+    isLoggedIn() {
+      return this.authStore.isLoggedIn
+    },
+    userEmail() {
+      return this.authStore.userEmail
+    },
     showDataPages() {
       return dataPages.filter(item => item.showMenu)
+    }
+  },
+
+  methods: {
+    logOut() {
+      this.authStore.logOut()
     }
   }
 }

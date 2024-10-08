@@ -30,8 +30,8 @@ const auth = useAuthStore()
 export default {
   data() {
     return {
-      email: '',
-      password: ''
+      email: 'mail@mail.ru',
+      password: '123'
     }
   },
   methods: {

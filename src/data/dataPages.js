@@ -35,6 +35,6 @@ export const dataPages = [
     name: 'login',
     title: 'Авторизация',
     component: () => import('./../pages/PageLogin.vue'),
-    showMenu: true
+    showMenu: false
   }
 ]

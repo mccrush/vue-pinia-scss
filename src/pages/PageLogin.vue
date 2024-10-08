@@ -2,9 +2,7 @@
   <div>
     <LayoutDesktop>
       <template #title>{{ pageInfo.title }}</template>
-      <template #actions>
-        <button class="btn btn-light">Выйти</button>
-      </template>
+      <template #actions> </template>
       <template #content>
         <LoginMain />
       </template>

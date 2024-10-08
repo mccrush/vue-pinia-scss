@@ -3,7 +3,8 @@ import { supabase } from './../lib/supabaseClient'
 
 export const useAuthStore = defineStore('auth', {
   state: () => ({
-    userId: null
+    userId: null,
+    userEmail: null
   }),
 
   getters: {
@@ -19,11 +20,25 @@ export const useAuthStore = defineStore('auth', {
     },
 
     async logIn({ email, password }) {
-      console.log(' auth.js logIn() email = ', email, ' password = ', password)
+      //console.log(' auth.js logIn() email = ', email, ' password = ', password)
+
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      })
+
+      if (data) {
+        this.userId = data.user.id
+        this.userEmail = data.user.email
+        console.log(' auth.js logIn() this.userId = ', this.userId)
+      }
+
     },
 
     async logOut() {
-
+      const { error } = await supabase.auth.signOut()
+      this.$reset()
+      console.log(' auth.js logOut() this.userId = ', this.userId)
     }
   },
 })
