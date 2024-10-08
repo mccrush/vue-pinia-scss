@@ -5,6 +5,7 @@
       :key="page.name"
       :to="page.path"
       class="nav-link"
+      :class="{ 'bg-body-tertiary': $route.name === page.name }"
       >{{ page.title }}
     </RouterLink>
   </nav>
