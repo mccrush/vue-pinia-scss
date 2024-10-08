@@ -23,6 +23,10 @@
 </template>
 
 <script>
+import { useAuthStore } from './../../stores/auth'
+
+const auth = useAuthStore()
+
 export default {
   data() {
     return {
@@ -48,7 +52,14 @@ export default {
       }
 
       if (this.email && this.password) {
-        console.log(' email = ', this.email, ' password = ', this.password)
+        console.log(
+          'LoginMain.vue email = ',
+          this.email,
+          ' password = ',
+          this.password
+        )
+
+        auth.logIn({ email: this.email, password: this.password })
       }
     }
   }
