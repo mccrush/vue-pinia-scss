@@ -25,6 +25,9 @@ export const dataPages = [
     name: 'edit',
     title: 'Редактировать',
     component: () => import('./../pages/PageEdit.vue'),
+    meta: {
+      requiresAuth: true
+    },
     showMenu: true
   },
   {

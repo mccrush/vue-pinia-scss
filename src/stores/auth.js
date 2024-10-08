@@ -3,11 +3,11 @@ import { supabase } from './../lib/supabaseClient'
 
 export const useAuthStore = defineStore('auth', {
   state: () => ({
-    loginIs: false
+    userId: null
   }),
 
   getters: {
-    countriesLength: (state) => state.countries.length,
+    isLoggedIn: (state) => state.userId !== null,
   },
 
   actions: {

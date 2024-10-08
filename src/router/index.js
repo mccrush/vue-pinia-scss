@@ -1,5 +1,6 @@
 import { createWebHistory, createRouter } from 'vue-router'
 import { dataPages } from './../data/dataPages'
+import { useAuthStore } from './../stores/auth'
 
 //const routes = [
 // {
@@ -32,7 +33,18 @@ router.beforeEach((to, from, next) => {
   // if (to.path === '/view/order') next()
   // else if (to.meta.requiresAuth && !currentUserId) next({ name: 'login' })
   // else next()
-  next()
+  const auth = useAuthStore()
+  if (to.meta.requiresAuth && !auth.isLoggedIn) {
+    next('/login')
+  } else {
+    if (auth.isLoggedIn && to.name === 'login') {
+      next('/')
+    } else {
+      next()
+    }
+  }
+
+
 })
 
 export default router
