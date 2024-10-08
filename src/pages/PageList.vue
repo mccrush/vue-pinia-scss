@@ -6,8 +6,7 @@
         <button class="btn btn-light">Добавить страну</button>
       </template>
       <template #content>
-        <div>$route.fullPath = {{ $route.fullPath }}</div>
-        <div>$route.name = {{ $route.name }}</div>
+        <ListMain />
       </template>
     </LayoutDesktop>
   </div>
@@ -17,9 +16,10 @@
 import { dataPages } from './../data/dataPages'
 
 import LayoutDesktop from './../layouts/LayoutDesktop.vue'
+import ListMain from './../modules/list/ListMain.vue'
 
 export default {
-  components: { LayoutDesktop },
+  components: { LayoutDesktop, ListMain },
   computed: {
     pageInfo() {
       const page = dataPages.find(item => item.name === this.$route.name)

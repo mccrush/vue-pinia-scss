@@ -1,5 +1,5 @@
   <template>
-  <div class="border-red">
+  <div>
     <!-- <SupaBase />
     <PiniaStore /> -->
 

@@ -8,6 +8,8 @@
       :class="{ 'bg-body-tertiary': $route.name === page.name }"
       >{{ page.title }}
     </RouterLink>
+    <hr />
+    <div>User name</div>
   </nav>
 </template>
 

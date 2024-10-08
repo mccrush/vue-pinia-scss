@@ -6,8 +6,7 @@
         <button class="btn btn-light">Выйти</button>
       </template>
       <template #content>
-        <div>$route.fullPath = {{ $route.fullPath }}</div>
-        <div>$route.name = {{ $route.name }}</div>
+        <LoginMain />
       </template>
     </LayoutDesktop>
   </div>
@@ -17,9 +16,10 @@
 import { dataPages } from './../data/dataPages'
 
 import LayoutDesktop from './../layouts/LayoutDesktop.vue'
+import LoginMain from './../modules/login/LoginMain.vue'
 
 export default {
-  components: { LayoutDesktop },
+  components: { LayoutDesktop, LoginMain },
   computed: {
     pageInfo() {
       const page = dataPages.find(item => item.name === this.$route.name)
