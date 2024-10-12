@@ -13,7 +13,7 @@
         </nav>
 
         <main class="p-3">
-          <slot name="content"> Content of page </slot>
+          <slot name="content"> Content of page 2 </slot>
         </main>
       </div>
     </div>
