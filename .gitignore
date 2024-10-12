@@ -1,6 +1,5 @@
 .DS_Store
 node_modules
-/dist_vite
 
 
 # local env files
@@ -24,5 +23,6 @@ pnpm-debug.log*
 
 package-lock.json
 apiKey.js
+apiKeyMC.js
 .firebase
 pnpm-lock.yaml
