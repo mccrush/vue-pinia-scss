@@ -27,7 +27,7 @@ console.log('main.js: App is run')
 // cities.getCities({ type: 'cities' })
 
 const { data } = supabase.auth.onAuthStateChange((event, session) => {
-  console.log(event, session)
+  //console.log(event, session)
 
   if (event === 'INITIAL_SESSION') {
     // handle initial session
@@ -35,7 +35,7 @@ const { data } = supabase.auth.onAuthStateChange((event, session) => {
     // handle sign in event
     store.commit('setAuthData', { type: 'userId', data: session.user.id })
     store.commit('setAuthData', { type: 'userEmail', data: session.user.email })
-    //router.push('/')
+    router.push('/')
   } else if (event === 'SIGNED_OUT') {
     // handle sign out event
     store.commit('setAuthData', { type: 'userId', data: null })

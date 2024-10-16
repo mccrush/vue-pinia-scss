@@ -35,8 +35,16 @@ export default {
     },
 
     async getItems({ commit }, { type }) {
-      const { data } = await supabase.from(type).select()
-      commit('setItems', { type, items: data })
+      try {
+        console.log('database.js getItems() type =', type)
+        const { data, error } = await supabase.from(type).select()
+        if (error) throw error
+        if (data) {
+          commit('setItems', { type, items: data })
+        }
+      } catch (error) {
+        console.error('database.js getItems()', error)
+      }
     }
   },
 

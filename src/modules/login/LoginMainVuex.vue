@@ -48,12 +48,12 @@ export default {
       }
 
       if (this.email && this.password) {
-        console.log(
-          'LoginMain.vue email = ',
-          this.email,
-          ' password = ',
-          this.password
-        )
+        // console.log(
+        //   'LoginMain.vue email = ',
+        //   this.email,
+        //   ' password = ',
+        //   this.password
+        // )
 
         this.$store.dispatch('logIn', {
           email: this.email,

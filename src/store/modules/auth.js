@@ -13,18 +13,22 @@ export default {
   },
 
   actions: {
-    async logIn({ email, password }) {
+    async logIn({ commit }, { email, password }) {
       try {
+        // console.log(
+        //   'auth.js logIn() email = ',
+        //   email,
+        //   ' password = ',
+        //   password
+        // )
+
         const { data, error } = await supabase.auth.signInWithPassword({
           email,
-          password
+          password,
         })
         if (error) throw error
-        if (data) {
-          console.log(data)
-        }
       } catch (error) {
-        console.error(error)
+        console.error('auth.js logIn()', error)
       }
 
     },

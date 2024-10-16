@@ -6,7 +6,7 @@
         {{ country.name + '--' + country.id }}
       </li>
     </ul>
-
+    <br />
     Города:
     <ul v-if="citiesLength" class="mt-2">
       <li v-for="city in cities" :key="city.id">
