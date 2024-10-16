@@ -19,7 +19,8 @@
 import { dataPages } from './../data/dataPages'
 
 import LayoutDesktop from './../layouts/LayoutDesktop.vue'
-import ListMain from './../modules/list/ListMain.vue'
+//import ListMain from './../modules/list/ListMain.vue'
+import ListMain from './../modules/list/ListMainVuex.vue'
 
 export default {
   components: { LayoutDesktop, ListMain },
