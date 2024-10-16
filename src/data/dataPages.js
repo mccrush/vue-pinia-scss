@@ -14,14 +14,14 @@ export const dataPages = [
     showMenu: true
   },
   {
-    path: '/item',
+    path: '/item/:id',
     name: 'item',
     title: 'Страна',
     component: () => import('./../pages/PageItem.vue'),
     showMenu: true
   },
   {
-    path: '/edit',
+    path: '/edit/:id',
     name: 'edit',
     title: 'Редактировать',
     component: () => import('./../pages/PageEdit.vue'),

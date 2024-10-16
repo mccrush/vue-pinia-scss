@@ -50,5 +50,5 @@ const { data } = supabase.auth.onAuthStateChange((event, session) => {
 })
 
 
-store.dispatch('getItems', { type: 'countries' })
+store.dispatch('getItems', { type: 'cars' })
 //store.dispatch('getItems', { type: 'cities' })

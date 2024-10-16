@@ -3,7 +3,9 @@
     Страны:
     <ul v-if="countriesLength">
       <li v-for="country in countries" :key="country.id">
-        {{ country.name + '--' + country.id }}
+        <RouterLink :to="'/item/' + country.id">
+          {{ country.title + '--' + country.id }}
+        </RouterLink>
       </li>
     </ul>
     <br />
@@ -20,10 +22,10 @@
 export default {
   computed: {
     countries() {
-      return this.$store.getters.countries
+      return this.$store.getters.cars
     },
     countriesLength() {
-      return this.$store.getters.countriesLength
+      return this.$store.getters.carsLength
     },
     cities() {
       return this.$store.getters.cities

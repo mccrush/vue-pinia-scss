@@ -3,7 +3,8 @@ import { supabase } from './../../lib/supabaseClient'
 export default {
   state: {
     countries: [],
-    cities: []
+    cities: [],
+    cars: []
   },
 
   mutations: {
@@ -16,21 +17,28 @@ export default {
     async removeItem({ commit }, { item }) {
       try {
       } catch (error) {
-        console.error(error)
+        console.error('database.js removeItem()', error)
       }
     },
 
     async updateItem({ commit }, { item }) {
       try {
+        //console.log('database.js updateItem() item =', item)
+        const { error } = await supabase
+          .from(item.type)
+          .update(item)
+          .eq('id', item.id)
+
+        if (error) throw error
       } catch (error) {
-        console.error(error)
+        console.error('database.js updateItem()', error)
       }
     },
 
     async addItem({ commit }, { item }) {
       try {
       } catch (error) {
-        console.error(error)
+        console.error('database.js addItem()', error)
       }
     },
 
@@ -52,6 +60,8 @@ export default {
     countries: state => state.countries,
     cities: state => state.cities,
     countriesLength: state => state.countries.length,
-    citiesLength: state => state.cities.length
+    citiesLength: state => state.cities.length,
+    cars: state => state.cars,
+    carsLength: state => state.cars.length
   }
 }
