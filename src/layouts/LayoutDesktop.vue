@@ -21,7 +21,8 @@
 </template>
 
 <script>
-import TheMenu from './../components/interface/TheMenu.vue'
+//import TheMenu from './../components/interface/TheMenu.vue'
+import TheMenu from './../components/interface/TheMenuVuex.vue'
 //import TheHeader from './../components/interface/TheHeader.vue'
 
 export default {

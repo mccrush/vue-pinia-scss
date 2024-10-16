@@ -1,8 +1,23 @@
 export default {
-  state: {},
+  state: {
+    isLoggedIn: null,
+    userEmail: null
+  },
+
   mutations: {},
-  actions: {},
+
+  actions: {
+    logIn({ email, password }) {
+
+    },
+
+    logOut() {
+
+    }
+  },
+
   getters: {
-    loading: state => state.loading
+    isLoggedIn: state => state.isLoggedIn,
+    userEmail: state => state.userEmail,
   }
 }

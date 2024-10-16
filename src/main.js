@@ -4,13 +4,13 @@ import './scss/styles.scss'
 //import { useCountriesStore } from './stores/countries'
 //import { useCitiesStore } from './stores/cities'
 import { createApp } from 'vue'
-//import { createPinia } from 'pinia'
+import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 import store from './store'
 
 
-//const pinia = createPinia()
+const pinia = createPinia()
 let app
 
 if (!app) {

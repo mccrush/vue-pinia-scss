@@ -1,9 +1,9 @@
 
 import { createStore } from 'vuex'
-import { auth } from './modules/auth'
-import { database } from './methods/database'
-import { realtime } from './methods/realtime'
-import { storage } from './methods/storage'
+import auth from './modules/auth'
+import database from './modules/database'
+import realtime from './modules/realtime'
+import storage from './modules/storage'
 
 export default createStore({
   modules: {

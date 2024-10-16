@@ -3,6 +3,6 @@ export default {
   mutations: {},
   actions: {},
   getters: {
-    loading: state => state.loading
+
   }
 }

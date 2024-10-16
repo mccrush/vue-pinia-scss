@@ -14,7 +14,8 @@
 import { dataPages } from './../data/dataPages'
 
 import LayoutDesktop from './../layouts/LayoutDesktop.vue'
-import LoginMain from './../modules/login/LoginMain.vue'
+//import LoginMain from './../modules/login/LoginMain.vue'
+import LoginMain from './../modules/login/LoginMainVuex.vue'
 
 export default {
   components: { LayoutDesktop, LoginMain },
