@@ -1,23 +1,46 @@
+import { supabase } from './../../lib/supabaseClient'
+
 export default {
   state: {
-    isLoggedIn: null,
+    userId: null,
     userEmail: null
   },
 
-  mutations: {},
+  mutations: {
+    setAuthData(state, { type, data }) {
+      state[type] = data
+    }
+  },
 
   actions: {
-    logIn({ email, password }) {
+    async logIn({ email, password }) {
+      try {
+        const { data, error } = await supabase.auth.signInWithPassword({
+          email,
+          password
+        })
+        if (error) throw error
+        if (data) {
+          console.log(data)
+        }
+      } catch (error) {
+        console.error(error)
+      }
 
     },
 
-    logOut() {
-
+    async logOut() {
+      try {
+        const { error } = await supabase.auth.signOut()
+        if (error) throw error
+      } catch (error) {
+        console.error(error)
+      }
     }
   },
 
   getters: {
-    isLoggedIn: state => state.isLoggedIn,
+    isLoggedIn: (state) => state.userId !== null,
     userEmail: state => state.userEmail,
   }
 }
