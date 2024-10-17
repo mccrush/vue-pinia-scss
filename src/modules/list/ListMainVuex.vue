@@ -8,6 +8,10 @@
         </RouterLink>
       </li>
     </ul>
+    <div>
+      <input type="text" class="form-control w-50" v-model.trim="title" />
+      <button class="btn btn-light mt-2" @click="addItem">Добавить</button>
+    </div>
     <br />
     Города:
     <ul v-if="citiesLength" class="mt-2">
@@ -19,7 +23,14 @@
 </template>
 
 <script>
+import { factoryCars } from './../../factories/factoryCars'
+
 export default {
+  data() {
+    return {
+      title: ''
+    }
+  },
   computed: {
     countries() {
       return this.$store.getters.cars
@@ -32,6 +43,16 @@ export default {
     },
     citiesLength() {
       return this.$store.getters.citiesLength
+    }
+  },
+  methods: {
+    addItem() {
+      if (this.title) {
+        let item = factoryCars()
+        item.title = this.title
+        this.$store.dispatch('addItem', { item })
+        this.title = ''
+      }
     }
   }
 }

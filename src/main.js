@@ -10,7 +10,6 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-
 const pinia = createPinia()
 let app
 
@@ -52,3 +51,35 @@ const { data } = supabase.auth.onAuthStateChange((event, session) => {
 
 store.dispatch('getItems', { type: 'cars' })
 //store.dispatch('getItems', { type: 'cities' })
+
+supabase.channel('custom-insert-channel')
+  .on(
+    'postgres_changes',
+    { event: 'INSERT', schema: 'public', table: 'cars' },
+    (payload) => {
+      console.log('Change received! Inser new Data', payload)
+      store.dispatch('getItems', { type: 'cars' })
+    }
+  )
+  .subscribe()
+
+
+supabase.channel('custom-update-channel')
+  .on(
+    'postgres_changes',
+    { event: 'UPDATE', schema: 'public', table: 'cars' },
+    (payload) => {
+      store.dispatch('getItems', { type: 'cars' })
+    }
+  )
+  .subscribe()
+
+supabase.channel('custom-delete-channel')
+  .on(
+    'postgres_changes',
+    { event: 'DELETE', schema: 'public', table: 'cars' },
+    (payload) => {
+      store.dispatch('getItems', { type: 'cars' })
+    }
+  )
+  .subscribe()

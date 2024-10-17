@@ -16,6 +16,12 @@ export default {
   actions: {
     async removeItem({ commit }, { item }) {
       try {
+        const { error } = await supabase
+          .from(item.type)
+          .delete()
+          .eq('id', item.id)
+
+        if (error) throw error
       } catch (error) {
         console.error('database.js removeItem()', error)
       }
@@ -37,6 +43,11 @@ export default {
 
     async addItem({ commit }, { item }) {
       try {
+        const { error } = await supabase
+          .from(item.type)
+          .insert(item)
+
+        if (error) throw error
       } catch (error) {
         console.error('database.js addItem()', error)
       }
