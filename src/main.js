@@ -25,6 +25,7 @@ console.log('main.js: App is run')
 // const cities = useCitiesStore()
 // cities.getCities({ type: 'cities' })
 
+// События хуков авторизации
 const { data } = supabase.auth.onAuthStateChange((event, session) => {
   //console.log(event, session)
 
@@ -48,10 +49,10 @@ const { data } = supabase.auth.onAuthStateChange((event, session) => {
   }
 })
 
-
+// Данные которые получаем для всех пользователей
 store.dispatch('getItems', { type: 'cars' })
-//store.dispatch('getItems', { type: 'cities' })
 
+// Подписка на события, для работы Realtime методов
 supabase.channel('custom-insert-channel')
   .on(
     'postgres_changes',

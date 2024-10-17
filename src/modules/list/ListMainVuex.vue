@@ -2,10 +2,17 @@
   <div class="border p-3">
     Страны:
     <ul v-if="countriesLength">
-      <li v-for="country in countries" :key="country.id">
+      <li
+        v-for="country in countries"
+        :key="country.id"
+        class="d-flex justify-content-between align-items-center"
+      >
         <RouterLink :to="'/item/' + country.id">
           {{ country.title + '--' + country.id }}
         </RouterLink>
+        <button class="btn btn-sm btn-light mt-2" @click="removeItem(country)">
+          Удалить
+        </button>
       </li>
     </ul>
     <div>
@@ -52,6 +59,11 @@ export default {
         item.title = this.title
         this.$store.dispatch('addItem', { item })
         this.title = ''
+      }
+    },
+    removeItem(item) {
+      if (confirm('Точно удалить?')) {
+        this.$store.dispatch('removeItem', { item })
       }
     }
   }
