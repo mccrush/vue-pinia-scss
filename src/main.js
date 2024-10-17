@@ -58,7 +58,7 @@ supabase.channel('custom-insert-channel')
     'postgres_changes',
     { event: 'INSERT', schema: 'public', table: 'cars' },
     (payload) => {
-      console.log('Change received! Inser new Data', payload)
+      //console.log('Change received! Inser new Data', payload)
       store.dispatch('getItems', { type: 'cars' })
     }
   )
